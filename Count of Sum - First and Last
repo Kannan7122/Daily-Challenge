@@ -1,0 +1,65 @@
+The program must accept N integers as the input. The program must print the count of integers which
+are equal to the sum of the first integer and the last integer.
+
+Boundary Condition(s):
+1 <= N <= 100
+1 <= Each integer value <= 10^8
+
+Input Format:
+The first line contains the value of N.
+The second line contains N integers separated by space(s).
+
+Output Format:
+The first line contains the count of integers which are equal to the sum of the first integer and the last
+integer.
+
+Example Input/Output 1:
+Input:
+7
+4 7 6 10 5 6 2
+
+Output:
+2
+
+Explanation:
+The sum of the first integer and the last integer is 6 (4 + 2).
+So 6 occurs two times.
+Hence the output is 2
+
+Example Input/Output 2:
+Input:
+5
+5 4 6 8 5
+
+Output:
+0
+
+
+
+
+Code : 
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		long[] arr= new long[n];
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextLong();
+		}
+		long sum=arr[0]+arr[n-1];
+		int cnt=0;
+		for(int i=0;i<n;i++)
+		{
+		    if(arr[i]==sum)
+		    {
+		        cnt++;
+		    }
+		}
+		System.out.println(cnt);
+
+	}
+}
