@@ -41,13 +41,13 @@ public class Hello {
 		int[] arr=new int[n];
 		for(int i=0;i<n;i++)
 		{
-		    arr[i]=sc.nexxtInt();
+		    arr[i]=sc.nextInt();
 		}
 		for(int i=0;i<n;i++)
 		{
 		    if(i%2==0)
 		    {
-		        System.out.println(arr[i]);
+		        System.out.print(arr[i]+" ");
 		    }
 		}
 	}
