@@ -1,0 +1,58 @@
+The program must accept a string S (where S always contains y and n) as the input. The program must
+print the output based on the following conditions.
+- If the count of y is greater than the count of n in the string S, print "YES".
+- If the count of y is less than the count of n in the string S, print "NO".
+- If the count of y is equal to the count of n in the string S, print "EQUAL".
+Boundary Condition(s):
+1 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains YES or NO or EQUAL.
+Example Input/Output 1:
+Input:
+nnnyyny
+Output:
+NO
+Explanation:
+The count of y in the string is 3.
+The count of n in the string is 4.
+So the count of y is less than the count of n.
+Hence the output is NO
+Example Input/Output 2:
+Input:
+ynynyn
+Output:
+EQUAL
+
+
+
+
+
+
+Code : 
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char ch[100];
+    scanf("%s",ch);
+    int n=strlen(ch);
+    int cnt1=0,cnt2=0;
+    for(int i=0;i<n;i++)
+    {
+        if(ch[i]=='y')
+            cnt1++;
+        else
+            cnt2++;
+    }
+    if(cnt1>cnt2)
+        printf("YES");
+    else if(cnt2>cnt1)
+        printf("NO");
+    else if(cnt1==cnt2)
+        printf("EQUAL");
+}
