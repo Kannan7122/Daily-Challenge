@@ -1,0 +1,56 @@
+Program :
+
+Sample Input:
+
+ethernet
+
+Output :
+
+enrehteet
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+    
+    
+    public static int vowel(int x)
+    {
+        if(x=='a'||x=='A'||x=='e'||x=='E'||x=='i'||x=='I'||x=='o'||x=='O'||x=='u'||x=='U')
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		char[] arr=str.toCharArray();
+		int n=arr.length;
+		int index=0;
+		for(int i=0;i<n;i++)
+		{
+		    if(vowel(arr[i])==1)
+		    {
+		        index=i;
+		    }
+		}
+		String res=str.substring(0,index);
+		StringBuilder s=new StringBuilder(res);
+		System.out.print(s.reverse());
+		for(int i=index;i<n;i++)
+		{
+		    System.out.print(arr[i]);
+		}
+
+	}
+}
