@@ -1,0 +1,76 @@
+
+Given N integers, add every two successive elements. Repeat the process until a single sum value is
+obtained. If the sum has more than one digits add all the digits until a single digit is obtained.
+   
+Boundary Condition(s):
+2 <= N <= 100
+Input Format:
+The first line contains the value of N.
+The second line contains the N integer values separated by space(s).
+Output Format:
+The first line contains the sum value.
+Example Input/Output 1:
+Input:
+5
+1 2 3 4 5
+Output:
+3
+Explanation : 
+1 2 3 4 5
+ 3 5 7 9
+  8 12 16
+   20 28
+     48
+     
+1+2=3, 2+3=5, 3+4=7, 4+5=9. Then 3+5=8, 5+7=12, 7+9=16. Then 8+12=20,12+16=28 then
+20+28=48. 4+8=12 then 1+2=3.
+Example Input/Output 2:
+Input:
+4 
+1 6 2 9
+Output:
+7
+
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d ",&arr[i]);
+    }
+    int x=0;
+    while(n!=0)
+    {
+        int g=0;
+        for(int i=0;i<n-1;i++)
+        {
+            arr[g]=arr[i]+arr[i+1];
+            x=arr[g];
+            g++;
+        }
+        n--;
+    }
+    while(x>=10)
+    {
+        int m=x,s=0;
+        while(m!=0)
+        {
+            s+=(m%10);
+            m/=10;
+        }
+        x=s;
+    }
+    printf("%d",x);
+}
