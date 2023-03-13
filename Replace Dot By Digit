@@ -1,0 +1,51 @@
+Input :
+
+.abcd;kjhf/sad/
+
+Output :
+
+.abcd,kjhf.sad,
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		char c='.';
+		for(int i=0;i<n;i++)
+		{
+		    char ch=str.charAt(i);
+		    if(Character.isAlphabetic(ch))
+		    {
+		        System.out.print(ch);
+		    }
+		    else if(Character.isDigit(ch))
+		    {
+		        System.out.print(ch);
+		    }
+		    else
+		    {
+		        System.out.print(c);
+		        if(c=='.')
+		        {
+		            c=',';
+		        }
+		        else
+		        {
+		            c='.';
+		        }
+		    }
+		}
+
+	}
+}
