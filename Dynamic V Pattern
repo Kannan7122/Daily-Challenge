@@ -1,0 +1,104 @@
+
+The program must accept two integers (X, Y) and a character CH as the input. The program must print
+the desired pattern as shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= X, Y <= 1000
+Input Format:
+The first line contains the values of X, CH and Y separated by a space.
+Output Format:
+The list of lines containing the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+3 # 5
+Output:
+------#
+-----#
+#---#
+-#-#
+--#
+Example Input/Output 2:
+Input:
+7 @ 7
+Output:
+@-----------@
+-@---------@
+--@-------@
+---@-----@
+----@---@
+-----@-@
+------@
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int x=sc.nextInt();
+		char ch=sc.next().charAt(0);
+		int y=sc.nextInt();
+		int row=x>y?x:y;
+		int col=(x+y)-1;
+		int Row1=row-x;
+		int Row2=row-y;
+		int d=0,Index=col-1;
+		for(int i=0;i<row-1;i++)
+		{
+		    for(int j=0;j<col;j++)
+		    {
+		        if(Row1==i)
+		        {
+		            if(d==j)
+		            {
+		                System.out.print(ch);
+		                d++;
+		                Row1++;
+		            }
+		            else
+		            {
+		                if(Row1<row)
+		                {
+		                    System.out.print("-");
+		                }
+		            }
+		        }
+		        else if(Row2==i)
+		        {
+		            if(Index==j)
+		            {
+		                System.out.print(ch);
+		                Index--;
+		                Row2++;
+		            }
+		            else
+		            {
+		                if(Row2<row)
+		                {
+		                    System.out.print("-");
+		                }
+		            }
+		        }
+		    }
+		    System.out.print("\n");
+		}
+		for(int i=0;i<x;i++)
+		{
+		    if(i==x-1)
+		    {
+		        System.out.print(ch);
+		    }
+		    else
+		    {
+		        System.out.print("-");
+		    }
+		}
+
+	}
+}
