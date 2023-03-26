@@ -1,0 +1,62 @@
+
+The program must accept a string S as the input. The program must print the alphabets in S
+which have both uppercase and lowercase alphabets in S as the output. The alphabets must be printed
+in the same order as given in the input. 
+Note: There will be at least one alphabet with both uppercase and lowercase letters in S.
+Boundary Condition(s):
+1 <= Length of S <= 100
+Input Format:
+The first line contains S.
+Output Format:
+The first line contains alphabets as per the condition.
+Example Input/Output 1:
+Input:
+aeroRadeOnoWe
+Output:
+roROo
+Explanation:
+The alphabets r and o are present in both uppercase and lowercase so they are printed.
+Example Input/Output 2:
+Input:
+ImpeccAbleCitrus
+Output:
+IccCi
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char ch[100];
+    scanf("%s",ch);
+    int n=strlen(ch);
+    for(int i=0;i<n;i++)
+    {
+        char ch1=ch[i];
+        for(int j=0;j<n;j++)
+        {
+            char ch2=ch[j];
+            if(islower(ch1))
+            {
+                char ch3=toupper(ch1);
+                if(ch3==ch2)
+                {
+                    printf("%c",ch1);
+                    break;
+                }
+            }
+            else
+            {
+                char ch3=tolower(ch1);
+                if(ch3==ch2)
+                {
+                    printf("%c",ch1);
+                    break;
+                }
+            }
+        }
+    }
+}
