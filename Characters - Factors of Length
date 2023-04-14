@@ -1,0 +1,57 @@
+
+The program must accept a string S as the input. The program must calculate the length of string S
+as L. Then the program must print the characters which are present at the positions of the factors
+of L in ascending order as the output.
+Boundary Condition(s):
+1 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains the characters based on the above conditions.
+Example Input/Output 1:
+Input:
+skillrack
+Output:
+sik
+Explanation:
+The length of the string "skillrack" is 9.
+The factors of 9 are 1, 3 and 9.
+So the characters present at the positions 1, 3 and 9 are printed.
+Hence the output is sik
+Example Input/Output 2:
+Input:
+google
+Output:
+gooe
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int[] arr=new int[1000];
+		int g=0;
+		for(int i=1;i<=n;i++)
+		{
+		    if(n%i==0)
+		    {
+		        arr[g]=i;
+		        g++;
+		    }
+		}
+		for(int i=0;i<g;i++)
+		{
+		    System.out.print(str.charAt(arr[i]-1));
+		}
+	}
+}
