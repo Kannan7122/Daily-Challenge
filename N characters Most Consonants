@@ -1,0 +1,88 @@
+
+The program must accept a string S and an integer N as the input. The program must print the first
+N characters of S if it contains more consonants than the number of consonants in the last N
+characters of S as the output. Else the program must print the last N characters of S as the output.
+If both the first N and last N characters contain the same number of consonants then the program
+must print the entire string without any modifications as the output.
+Boundary Condition(s):
+2 <= Length of string <= 100
+1 <= N <= Length of string
+Input Format:
+The first line contains S and N separated by a space.
+Output Format:
+The first line contains the string as per the given condition.
+Example Input/Output 1:
+Input:
+tamarind 4
+Output:
+rind
+Explanation:
+There are 2 consonants in the first 4 characters.
+There are 3 consonants in the last 4 characters.
+Hence the last 4 characters are printed.
+Example Input/Output 2:
+Input:
+basic 2
+Output:
+basic
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+    
+    public static int isvowel(char ch)
+    {
+        if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U')
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=sc.nextInt();
+		int l=str.length();
+		String s1=str.substring(0,n);
+		String s2=str.substring(l-n,l);
+		int cnt1=0,cnt2=0;
+		for(int i=0;i<s1.length();i++)
+		{
+		    char ch=s1.charAt(i);
+		    if(isvowel(ch)==-1)
+		    {
+		        cnt1++;
+		    }
+		}
+		for(int i=0;i<s2.length();i++)
+		{
+		    char ch=s2.charAt(i);
+		    if(isvowel(ch)==-1)
+		    {
+		        cnt2++;
+		    }
+		}
+		if(cnt1==cnt2)
+		{
+		    System.out.println(str);
+		}
+		else if(cnt1>cnt2)
+		{
+		    System.out.println(s1);
+		}
+		else
+		{
+		    System.out.println(s2);
+		}
+	}
+}
