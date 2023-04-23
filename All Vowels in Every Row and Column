@@ -1,0 +1,113 @@
+
+The program must accept a character matrix of size RxC as the input. The program must
+print YES if all the vowels (only lowercase vowels) occur at least once in every row and every
+column. Else the program must print NO as the output.
+Boundary Condition(s):
+1 <= R, C <= 50
+Input Format:
+The first line contains the values of R and C separated by a space.
+The next R lines contain C alphabets each separated by a space.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+5 6
+a e i a o u
+e i o e u a
+i o u i a e
+o u a o e i
+u a e u i o
+Output:
+YES
+Explanation:
+All the vowels occur at least once in every row and every column. So YES is printed.
+Example Input/Output 2:
+Input:
+7 6
+e j e u u i
+a y m n o f
+a n h i c q
+e i p u o o
+e o a e t q
+e e o o a e
+u n u n k e
+Output:
+NO
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+		int c=sc.nextInt();
+		char[][] arr=new char[r][c];
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        arr[i][j]=sc.next().charAt(0);
+		    }
+		}
+		int count=0;
+		for(int i=0;i<r;i++)
+		{
+		    String s="";
+		    String ss="aeiou";
+		    int cnt=0;
+		    for(int j=0;j<c;j++)
+		    {
+		        s+=arr[i][j];
+		    }
+		    for(int j=0;j<5;j++)
+		    {
+		        char ch=ss.charAt(j);
+		        if(s.indexOf(ch)>=0)
+		        {
+		            cnt++;
+		        }
+		    }
+		    if(cnt>=5)
+		    {
+		        count++;
+		    }
+		}
+		for(int i=0;i<c;i++)
+		{
+		    String s="";
+		    String ss="aeiou";
+		    int cnt=0;
+		    for(int j=0;j<r;j++)
+		    {
+		        s+=arr[j][i];
+		    }
+		    for(int j=0;j<5;j++)
+		    {
+		        char ch=ss.charAt(j);
+		        if(s.indexOf(ch)>=0)
+		        {
+		            cnt++;
+		        }
+		    }
+		    if(cnt>=5)
+		    {
+		        count++;
+		    }
+		}
+		if(count==r+c)
+		{
+		    System.out.println("YES");
+		}
+		else
+		{
+		    System.out.println("NO");
+		}
+
+	}
+}
