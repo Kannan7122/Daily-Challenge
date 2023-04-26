@@ -1,0 +1,52 @@
+
+The program must accept an integer N as the input. The program must print YES if all the digits in
+N are even. Else the program must print the NO as the output.
+Boundary Condition(s):
+1 <= N <= 10^8
+Input Format:
+The first line contains the integer N.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+2468
+Output:
+YES
+Explanation:
+All the digits in 2468 are even. So YES is printed.
+Example Input/Output 2:
+Input:
+277778
+Output:
+NO
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		int n=str.length();
+		int cnt=0;
+		for(int i=0;i<n;i++)
+		{
+		    int x=Character.getNumericValue(str.charAt(i));
+		    if(x%2==0)
+		    {
+		        cnt++;
+		    }
+		}
+		if(cnt==n)
+		{
+		    System.out.println("YES");
+		}
+		else
+		{
+		    System.out.println("NO");
+		}
+	}
+}
