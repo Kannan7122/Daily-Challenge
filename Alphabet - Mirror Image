@@ -1,0 +1,64 @@
+
+The program must accept an integer N as the input. The program must print the desired pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+1 <= N <= 26
+Input Format:
+The first line contains N.
+Output Format:
+The first N lines contain the pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+3
+Output:
+a b c * c b a
+a b * * * b a
+a * * * * * a
+Example Input/Output 2:
+Input:
+4
+Output:
+a b c d * d c b a
+a b c * * * c b a
+a b * * * * * b a
+a * * * * * * * a
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		String s="abcdefghijklmnopqrstuvwxyz";
+		int l=(2*n)+1;
+		int g=n;
+		for(int i=0;i<n;i++)
+		{
+		    int h=g;
+		    for(int j=0;j<l;j++)
+		    {
+		        if(j<n-i)
+		        {
+		            System.out.print(s.charAt(j)+" ");
+		        }
+		        else if(j>l-(n-i)-1)
+		        {
+		            System.out.print(s.charAt(h-1)+" ");
+		            h--;
+		        }
+		        else
+		        {
+		            System.out.print("* ");
+		        }
+		    }
+		    g--;
+		    System.out.println();
+		}
+
+	}
+}
