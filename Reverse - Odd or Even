@@ -1,0 +1,103 @@
+Program:
+
+
+The program must accept N integers as the input. The program must print the output based on the
+following conditions.
+- If the number of even integers is greater than the number of odd integers then the program must
+print all the even integers in the reverse order followed by all the odd integers in the given order.
+- If the number of even integers is less than the number of odd integers then the program must
+print all the odd integers in the reverse order followed by all the even integers in the given order.
+- If the number of even integers is equal to the number of odd integers then the program must print
+all the integers in the reverse order.
+Boundary Condition(s):
+1 <= N <= 100
+-10^8 <= Each integer value <= 10^8
+Input Format:
+The first line contains the value of N.
+The second line contains N integers separated by space(s).
+Output Format:
+The first line contains either N integers separated by a space or -1 based on the given conditions.
+Example Input/Output 1:
+Input:
+7
+21 14 11 13 29 24 15
+Output:
+15 29 13 11 21 14 24
+Explanation:
+The number of odd integers is 5.
+The number of even integers is 2.
+Here 5 is greater than 2, so all the odd integers are printed in reverse order followed by all the
+even integers in the given order.
+Hence the output is 15 29 13 11 21 14 24
+Example Input/Output 2:
+Input:
+4
+-12 45 78 -23
+Output:
+-23 78 45 -12
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int[] arr=new int[n];
+		int cnt1=0,cnt2=0;
+		int[] e=new int[n];
+		int[] o=new int[n];
+		int g=0,h=0;
+		for(int i=0;i<n;i++)
+		{
+		    arr[i]=sc.nextInt();
+		    if(Math.abs(arr[i])%2==0)
+		    {
+		        cnt1++;
+		        e[g]=arr[i];
+		        g++;
+		    }
+		    else
+		    {
+		        cnt2++;
+		        o[h]=arr[i];
+		        h++;
+		    }
+		}
+		int[] even=new int[g];
+		int[] odd=new int[h];
+		
+		for(int i=0;i<g;i++)
+		    even[i]=e[i];
+		
+		for(int i=0;i<h;i++)
+		    odd[i]=o[i];
+		
+		if(cnt1==cnt2)
+		{
+		    for(int i=n-1;i>=0;i--)
+		    {
+		        System.out.print(arr[i]+" ");
+		    }
+		}
+		else if(cnt1>cnt2)
+		{
+		    for(int i=g-1;i>=0;i--)
+		        System.out.print(even[i]+" ");
+		        
+		    for(int i=0;i<h;i++)
+		        System.out.print(odd[i]+" ");
+		}
+		else
+		{
+		    for(int i=h-1;i>=0;i--)
+		        System.out.print(odd[i]+" ");
+		    
+		    for(int i=0;i<g;i++)
+		        System.out.print(even[i]+" ");
+		}
+	}
+}
