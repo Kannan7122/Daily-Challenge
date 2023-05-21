@@ -1,0 +1,33 @@
+Input :
+
+1234
+
+Output :
+
+2 4 12 34 234 1234
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String N=sc.nextLine().trim();
+		for(int size=1;size<=N.length();size++)
+		{
+		    for(int ind=size;ind<=N.length();ind++)
+		    {
+		        int val=Integer.parseInt(N.substring(ind-size,ind));
+		        if(String.valueOf(val).length()==size && val%2==0)
+		        {
+		            System.out.print(val+" ");
+		        }
+		    }
+		}
+
+	}
+}
