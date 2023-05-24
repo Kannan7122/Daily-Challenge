@@ -1,0 +1,118 @@
+Program :
+
+
+The program must accept two character matrices A and B are of same size NxN as the input. The
+program must print the matrix which has the maximum number of vowels as the output. If both
+matrices have the same number of vowels then the program must print the matrix A as the output.
+Note: At least one vowel must be present in both the matrices.
+Boundary Condition(s):
+2 <= N <= 50
+Input Format:
+The first line contains the integer N.
+The next N lines contain N characters (matrix A) each separated by a space(s).
+The remaining N lines contain N characters (matrix B) each separated by a space(s).
+Output Format:
+The first N lines contain N characters separated by space(s).
+Example Input/Output 1:
+Input:
+3
+Q K e
+v B a
+U I T
+i Y u
+t z o
+w a E
+Output:
+i Y u
+t z o
+w a E
+Explanation:
+The matrix A has 4 vowels ( e, a, U and I).
+The matrix B has 5 vowels ( i, u, o, a and E ).
+The matrix B has more vowels than matrix A.
+Hence the output is
+i Y u
+t z o
+w a E
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int isvowel(char ch){
+    if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U'){
+        return 1;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+int main()
+{
+    int n;
+    scanf("%d\n",&n);
+    char arr1[n][n];
+    char arr2[n][n];
+    int cnt1=0,cnt2=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%c ",&arr1[i][j]);
+            if(isvowel(arr1[i][j])==1)
+            {
+                cnt1++;
+            }
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            scanf("%c ",&arr2[i][j]);
+            if(isvowel(arr2[i][j])==1)
+            {
+                cnt2++;
+            }
+        }
+    }
+    if(cnt1==cnt2)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                printf("%c ",arr1[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    else if(cnt1>cnt2)
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                printf("%c ",arr1[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    else
+    {
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                printf("%c ",arr2[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    
+}
