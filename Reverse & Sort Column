@@ -1,0 +1,84 @@
+Program :
+
+
+The program must accept an integer matrix of size RxC as the input. The program must reverse
+each integer in the matrix and then the program must sort the integers in each column of the matrix
+in ascending order. Finally, the program must print the modified matrix as the output.
+Boundary Condition(s):
+2 <= R, C <= 100
+Input Format:
+The first line contains two integers R and C separated by a space.
+The next R lines contain C integers separated by space(s).
+Output Format:
+The first R lines contain C integers separated by a space.
+Example Input/Output 1:
+Input:
+3 4
+19 23 89 22
+87 34 45 38
+100 23 47 29
+Output:
+1 32 54 22
+78 32 74 83
+91 43 98 92
+Explanation:
+After reversing each integer, the matrix becomes
+91 32 98 22 
+78 43 54 83 
+1 32 74 92 
+After sorting each column, the matrx becomes
+1 32 54 22
+78 32 74 83
+91 43 98 92
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int r=sc.nextInt();
+		int c=sc.nextInt();
+		String[][] str=new String[r][c];
+		int[][] arr=new int[r][c];
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        str[i][j]=sc.next();
+		        StringBuilder sb=new StringBuilder(str[i][j]);
+		        StringBuilder rev=sb.reverse();
+		        String s=rev.toString();
+		        arr[i][j]=Integer.parseInt(s);
+		    }
+		}
+		for(int i=0;i<c;i++)
+		{
+		    int[] a=new int[r];
+		    for(int j=0;j<r;j++)
+		    {
+		        a[j]=arr[j][i];
+		    }
+		    Arrays.sort(a);
+		    for(int j=0;j<r;j++)
+		    {
+		        arr[j][i]=a[j];
+		    }
+		}
+		for(int i=0;i<r;i++)
+		{
+		    for(int j=0;j<c;j++)
+		    {
+		        System.out.print(arr[i][j]+" ");
+		    }
+		    System.out.println();
+		}
+	}
+}
