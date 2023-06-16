@@ -1,0 +1,92 @@
+Program :
+
+
+The program must accept an integer matrix of size RxC as the input. For each integer in the
+matrix, the program must replace all the prime numbers by 1 and all the non-prime numbers by 0.
+Then the program must print the modified matrix as the output.
+Boundary Condition(s):
+1 <= R, C <= 100
+2 <= Each Integer Value <= 10000
+Input Format:
+The first line contains two integers R and C separated by a space.
+The next R lines contain C integers each separated by space(s).
+Output Format:
+The first line R lines contain C integers each separated by a space.
+Example Input/Output 1:
+Input:
+2 3
+2 5 9 
+6 8 3 
+Output:
+1 1 0 
+0 0 1 
+Explanation:
+In the 1st
+row and the 1st column of the matrix, 2 is a prime number. So 1 is printed.
+In the 1st
+row and the 2nd column of the matrix, 5 is a prime number. So 1 is printed.
+In the 1st
+row and the 3rd column of the matrix, 9 is not a prime number. So 0 is printed.
+In the 2nd
+row and the 1st column of the matrix, 6 is not a prime number. So 0 is printed.
+In the 2nd
+row and the 2nd column of the matrix, 8 is not a prime number. So 0 is printed.
+In the 2nd
+row and the 3rd column of the matrix, 3 is a prime number. So 1 is printed.
+Example Input/Output 2:
+Input:
+3 4
+10 20 30 40
+29 37 73 91
+50 57 52 53
+Output:
+0 0 0 0
+1 1 1 0
+0 0 0 1
+
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int isprime(int n) {
+    if(n==1 || n==0) {
+        return 1;
+    }
+    else {
+        for(int i=2;i<=sqrt(n);i++) {
+            if(n%i==0) {
+                return -1;
+            }
+        }
+        return 1;
+    }
+}
+
+
+int main()
+{
+    int r,c;
+    scanf("%d %d",&r,&c);
+    int arr[r][c];
+    for(int i=0;i<r;i++) {
+        for(int j=0;j<c;j++) {
+            scanf("%d ",&arr[i][j]);
+            if(isprime(arr[i][j])==1)
+            {
+                arr[i][j]=1;
+            }
+            else
+            {
+                arr[i][j]=0;
+            }
+            printf("%d ",arr[i][j]);
+        }
+        printf("\n");
+    }
+}
