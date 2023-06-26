@@ -1,0 +1,82 @@
+Program :
+
+
+The program must accept a string S and an alphabet CH as the input. The program must replace all
+the occurrences of the alphabet CH by the next occurring vowel in the string S. Then the program
+must print the modified string as the output.
+Note: If there is no vowel after the alphabet CH then CH must be printed as it is.
+Boundary Condition(s):
+1 <= Length of the string <= 1000
+Input Format:
+The first line contains the string S and an alphabet CH separated by a space.
+Output Format:
+The first line contains the modified string.
+Example Input/Output 1:
+Input:
+teleportation t
+Output:
+eeleporaaiion
+Example Input/Output 2:
+Input:
+accuracy c
+Output:
+auuuracy
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+    
+    
+    public static int isvowel(char ch) {
+        if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch=='u' || ch=='U') {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String str=sc.next();
+		char ch=sc.next().charAt(0);
+		int n=str.length();
+		char[] arr=str.toCharArray();
+		for(int i=0;i<n;i++) {
+		    if(arr[i]==ch) {
+		        int k=i+1;
+		        int cnt=0;
+		        if(k<n) {
+    		        while(isvowel(arr[k])!=1) {
+    		            k++;
+    		            if(k>=n) {
+    		                k--;
+    		                cnt++;
+    		                break;
+    		            }
+    		        }
+		        }
+		        else {
+		            System.out.print(arr[i]);
+		            return;
+		        }
+		        if(cnt!=0) {
+		            System.out.print(arr[i]);
+		        }
+		        else {
+		            System.out.print(arr[k]);
+		        }
+		    }
+		    else {
+		        System.out.print(arr[i]);
+		    }
+		}
+	}
+}
