@@ -1,0 +1,61 @@
+Program :
+
+
+The program must accept an integer N as the input. The program must print YES if N is a twisted
+prime number. Else the program must print NO as the output. A number is said to be twisted prime
+if it is a prime number and reverse of the number is also a prime number.
+Boundary Condition(s):
+1 <= N <= 10^16
+Input Format:
+The first line contains the value of N.
+Output Format:
+The first line contains either YES or NO.
+Example Input/Output 1:
+Input:
+97
+Output:
+YES
+Explanation:
+97 is a prime number.
+The reverse of 97 is 79. So 79 is also a prime number.
+Hence the output is YES
+Example Input/Output 2:
+Input:
+34
+Output:
+NO
+
+
+
+
+Code :
+
+import sys
+import math
+
+def isprime(n):
+    if n <= 1:
+        return False
+        
+    for i in range(2, int(math.sqrt(n))+1):
+        if n%i == 0:
+            return False
+    
+    return True
+
+def getreverse(n):
+    reverse=0
+    while n!=0:
+        reverse=reverse*10+n%10
+        n//=10
+    return reverse
+    
+def main():
+    n=int(input())
+    if isprime(n) and isprime(getreverse(n)):
+        print("YES")
+    else:
+        print("NO")
+
+if __name__ == '__main__':
+    main();
