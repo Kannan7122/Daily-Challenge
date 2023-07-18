@@ -1,0 +1,68 @@
+Program :
+
+Longest Palindrome Length
+The program must accept a string S as the input. The program must print the length of the longest
+palindrome that can be formed with the consonants in the string S as the output.
+Note:
+At least one consonant must be present in the string S.
+The string S contains only lower case alphabets.
+Boundary Condition(s):
+1 <= Length of S <= 10^4
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains the length of the longest palindrome in the string S.
+Example Input/Output 1:
+Input:
+abcdeedb
+Output:
+5
+Explanation:
+The longest palindrome can be formed with bbddc (The order can be any but the length is 5).
+Example Input/Output 2:
+Input:
+racecar
+Output:
+4
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		String v="aeiouAEIOU";
+		
+		Map<Character,Integer> consonant = new HashMap<Character,Integer>();
+		
+		for(int i=0;i<s.length();i++) {
+		    char ch=s.charAt(i);
+		    if(v.indexOf(ch)<0) {
+		        if(consonant.containsKey(ch)) {
+		            consonant.put(ch,consonant.get(ch)+1);
+		        }
+		        else {
+		            consonant.put(ch,1);
+		        }
+		    }
+		}
+		int ans=0;
+		int f=0;
+		for(int i:consonant.values()) {
+		    ans+=i/2*2;
+		    if(i%2!=0) {
+		        f=1;
+		    }
+		}
+		if(f==1) {
+		    ans++;
+		}
+		System.out.println(ans);
+	}
+}
