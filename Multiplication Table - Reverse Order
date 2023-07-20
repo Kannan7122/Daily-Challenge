@@ -1,0 +1,44 @@
+Program :
+
+
+The program must accept the value for two positive integers N and T and must print the
+multiplication table for N till the T
+th multiple in reverse order.
+Boundary Condition(s):
+1 <= N <= 20
+1 <= T <= 1000
+Input Format:
+The first line contains N and T separated by a space.
+Output Format:
+The lines containing the multiplication table for N till the T
+th multiple in reverse order as shown in
+the Example Input/Output section.
+Example Input/Output 1:
+Input:
+7 10
+Output:
+10 * 7 = 70
+9 * 7 = 63
+8 * 7 = 56
+7 * 7 = 49
+6 * 7 = 42
+5 * 7 = 35
+4 * 7 = 28
+3 * 7 = 21
+2 * 7 = 14
+1 * 7 = 7
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int x,n;
+    scanf("%d %d",&x,&n);
+    for(int i=n;i>0;i--) {
+        printf("%d * %d = %d\n",i,x,i*x);
+    }
+}
