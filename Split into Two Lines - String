@@ -1,0 +1,54 @@
+Program :
+
+
+The program must accept a string S and print the string value in two lines in zig zag pattern as
+shown in the Example Input/Output section.
+Boundary Condition(s):
+2 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The first two lines contain the desired pattern as shown in the Example Input/Output section.
+Example Input/Output 1:
+Input:
+abcdefg
+Output:
+a*c*e*g
+*b*d*f*
+Example Input/Output 2:
+Input:
+blockchain
+Output:
+b*o*k*h*i*
+*l*c*c*a*n
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+int main()
+{
+    char ch[100];
+    scanf("%s",&ch);
+    int n=strlen(ch);
+    for(int i=0;i<n;i++) {
+        if(i%2==0) {
+            printf("%c",ch[i]);
+        }
+        else {
+            printf("*");
+        }
+    }
+    printf("\n");
+    for(int i=0;i<n;i++) {
+        if(i%2!=0) {
+            printf("%c",ch[i]);
+        }
+        else {
+            printf("*");
+        }
+    }
+}
