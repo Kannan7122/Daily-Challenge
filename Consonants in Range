@@ -1,0 +1,66 @@
+Program :
+
+
+The program must accept two lower case alphabets CH1 and CH2 as the input. The program must
+print all the consonants from CH1 to CH2 as the output.
+Input Format:
+The first line contains CH1 and CH2 separated by a space.
+Output Format:
+The first line contains all the consonants from CH1 to CH2.
+Example Input/Output 1:
+Input:
+a z
+Output:
+b c d f g h j k l m n p q r s t v w x y z
+Explanation:
+All the consonants (except the vowels) from a to z are printed as the output.
+Example Input/Output 2:
+Input:
+v h
+Output:
+v t s r q p n m l k j h
+
+
+
+
+Code :
+
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		char ch1=sc.next().charAt(0);
+		char ch2=sc.next().charAt(0);
+		char c1,c2;
+		int cnt=0;
+		if(ch1<ch2) {
+		    c1=ch1;
+		    c2=ch2;
+		}
+		else {
+		    cnt++;
+		    c1=ch2;
+		    c2=ch1;
+		}
+		
+		String vowel="AEIOUaeiou";
+		String res="";
+		for(char c=c1;c<=c2;c++) {
+		    if(vowel.indexOf(c)>=0) {
+		        continue;
+		    }
+		    else {
+		        res+=c+" ";
+		    }
+		}
+		if(cnt==0) {
+		    System.out.println(res);
+		}
+		else {
+		    StringBuilder sb=new StringBuilder(res).reverse();
+		    System.out.println(sb.toString());
+		}
+	}
+}
