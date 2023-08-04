@@ -1,0 +1,49 @@
+Program :
+
+
+The program must accept a string S as the input. The program must print all the pairs having a
+consonant followed by a vowel in the string S (in the order of occurrence) as the output.
+Note: The string S always contains at least one pair having a consonant followed by a vowel.
+Boundary Condition(s):
+2 <= Length of S <= 100
+Input Format:
+The first line contains the string S.
+Output Format:
+The first line contains all the pairs having a consonant followed by a vowel separated by a space.
+Example Input/Output 1:
+Input:
+volcano
+Output:
+vo ca no
+Explanation:
+The string "volcano" contain three pairs having a consonant followed by a vowel.
+So the pairs vo ca and no are printed as the output.
+Example Input/Output 2:
+Input:
+TELEVISION
+Output:
+TE LE VI SI
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        char[] arr=str.toCharArray();
+        int n=arr.length;
+        String vowel="aeiouAEIOU";
+        for(int i=0;i<n-1;i++) {
+            if(vowel.indexOf(arr[i])<0) {
+                if(vowel.indexOf(arr[i+1])>=0) {
+                    System.out.print(arr[i]+""+arr[i+1]+" ");
+                }
+            }
+        }
+	}
+}
