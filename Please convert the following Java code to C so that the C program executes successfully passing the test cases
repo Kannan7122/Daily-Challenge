@@ -1,0 +1,78 @@
+Program :
+
+
+import java.util.*;
+public class Hello {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ //from and to will not be more than 10^5
+ int from = sc.nextInt();
+ int to = sc.nextInt();
+ Set<Integer> allFactors = new TreeSet<>();
+ for (int val = from; val <= to; val++) {
+ for (int ctr = 1; ctr * ctr <= val; ctr++) {
+ if (val % ctr == 0) {
+ allFactors.add(ctr);
+ allFactors.add(val / ctr);
+ }
+ }
+ }
+ for (Integer factor : allFactors) {
+ System.out.print(factor + " ");
+ }
+ }
+}
+
+
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+bool contain(int* arr,int size,int key) {
+    for(int i=0;i<size;i++) {
+        if(key==arr[i]) {
+            return true;
+        }
+    }
+    return false;
+}
+int main()
+{
+    int size=0;
+    int* ptr=NULL;
+    int from,to;
+    scanf("%d %d",&from,&to);
+    for(int val=from;val<=to;val++) {
+        for(int ctr=1;ctr*ctr<=val;ctr++) {
+            if(val%ctr==0) {
+                if(!contain(ptr,size,ctr)) {
+                    size++;
+                    ptr=(int*)realloc(ptr,size*sizeof(int));
+                    ptr[size-1]=ctr;
+                }
+                if(!contain(ptr,size,val/ctr)) {
+                    size++;
+                    ptr=(int*)realloc(ptr,size*sizeof(int));
+                    ptr[size-1]=val/ctr;
+                }
+            }
+        }
+    }
+    for(int i=0;i<size;i++) {
+        for(int j=i+1;j<size;j++) {
+            if(ptr[i]>ptr[j]) {
+                int temp=ptr[i];
+                ptr[i]=ptr[j];
+                ptr[j]=temp;
+            }
+        }
+    }
+    for(int i=0;i<size;i++) {
+        printf("%d "a,ptr[i]);
+    }
+}
