@@ -1,0 +1,40 @@
+Program :
+
+# Length of str1 and str2 are always less than or equal to 100
+str1 = input()
+str2 = input()
+for ch in str1:
+ if not ch in str2:
+ print(ch, end=" ")
+ break
+else:
+ print(-1)
+
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+int main()
+{
+    char ch1[100],ch2[100];
+    scanf("%s",ch1);
+    scanf("%s",ch2);
+    bool flag=false;
+    for(int i=0;i<sizeof(ch1);i++) {
+        if(ch1[i]=='\0') {
+            break;
+        }
+        if(strchr(ch2,ch1[i])==NULL) {
+            printf("%c",ch1[i]);
+            flag=true;
+            break;
+        }
+    }
+    if(!flag) {
+        printf("%d",-1);
+    }
+}
