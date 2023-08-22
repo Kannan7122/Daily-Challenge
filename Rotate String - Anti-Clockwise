@@ -1,0 +1,42 @@
+Program :
+
+
+The program accepts a string S and an integer N as the input. The program must rotate the string S
+for N times in anti-clockwise direction and print the modified string as the output.
+Boundary Condition(s):
+1 <= Length of S <= 100
+1 <= N <= 1000
+Input Format:
+The first line contains S.
+The second line contains N.
+Output Format:
+The first line contains the modified string.
+Example Input/Output 1:
+Input:
+mangoes
+3
+Output:
+goesman
+Explanation:
+After the first anti-clockwise rotation, the string becomes "angoesm".
+After the second anti-clockwise rotation, the string becomes "ngoesma".
+After the third anti-clockwise rotation, the string becomes "goesman".
+Hence the output is goesman
+Example Input/Output 2:
+Input:
+hi
+10
+Output:
+hi
+
+
+
+
+Code :
+
+#Your code below
+s = input().strip()
+x = int(input())
+k = x%(len(s))
+res = s[k:]+s[:k]
+print(res)
