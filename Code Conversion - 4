@@ -1,0 +1,22 @@
+Program :
+
+Please convert the following C code to Python so that the Python program executes successfully
+passing the test cases.
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+ int N;
+ scanf("%d", &N);
+ char num[11];
+ printf("%d", sprintf(num, "%d", N));
+ return 0;
+}
+
+
+Code :
+
+#Your code below
+n = int(input())
+l = str(n)
+print(len(l))
