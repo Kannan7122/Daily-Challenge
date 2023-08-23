@@ -1,0 +1,35 @@
+Program :
+
+Please convert the following Python code to C so that the C program executes successfully passing
+the test cases.
+strVal = input()
+X = int(input())
+strLen = len(strVal)
+print(((strVal[::-1] + strVal) * (X // (strLen * 2) + 1))[:X])
+
+
+
+Code :
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    char s[1001],d[100];
+    int n,i=0,k=0;
+    scanf("%s%d",s,&n);
+    int l=strlen(s);
+    while(i<(n/(l*2)+1)) {
+        for(int j=l-1;j>=0;j--) {
+            d[k++]=s[j];   
+        }
+        for(int j=0;j<l;j++) {
+            d[k++]=s[j];
+        }
+        i++;
+    }
+    for(int j=0;j<n;j++) {
+        printf("%c",d[j]);
+    }
+}
