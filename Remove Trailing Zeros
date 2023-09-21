@@ -1,0 +1,72 @@
+Program :
+
+
+
+The program must accept N integers as the input. The program must remove the trailing zeros for all
+the N integers. Then the program must print the smallest integer among the N modified integers as
+the output.
+Boundary Condition(s):
+1 <= N <= 100
+1 <= Each integer value <= 10^8
+Input Format:
+The first line contains N.
+The second line contains N integers separated by a space.
+Output Format:
+The first line contains the smallest integer among the N modified integers.
+Example Input/Output 1:
+Input:
+5
+150 2000 50 8800 24
+Output:
+2
+Explanation:
+After removing the trailing zeros in the five integers, the integers become 15 2 5 88 24.
+Now the smallest integer is 2. So 2 printed as the output.
+Example Input/Output 2:
+Input:
+4
+10 19 457 1000000
+Output:
+1
+
+
+
+
+
+
+
+
+Code :
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int min=100000000;
+		String[] arr=new String[n];
+		for(int i=0;i<n;i++) {
+		    arr[i]=sc.next();
+		    String ss="";
+		    int cnt=0;
+		    for(int j=arr[i].length()-1;j>=0;j--) {
+		        if(arr[i].charAt(j)=='0' && cnt==0) {
+		            continue;
+		        }
+		        else{
+		            cnt++;
+		            ss+=arr[i].charAt(j);
+		        }
+		    }
+		    StringBuilder sb=new StringBuilder(ss);
+		    StringBuilder rev=sb.reverse();
+		    String res = rev.toString();
+		    int x=Integer.parseInt(res);
+		    if(x<min) {
+		        min=x;
+		    }
+		}
+		System.out.println(min);
+	}
+}
